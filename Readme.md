@@ -13,4 +13,4 @@ Este repositorio contiene una página HTML informativa sobre las tendencias de p
 
 1. Descarga o clona el repositorio en tu máquina local:
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone <URL_DEL_REPOSITORIO># Big
