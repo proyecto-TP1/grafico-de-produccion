@@ -12,11 +12,13 @@
             background-color: #f7f7f7;
         }
         header {
+            background-color: #1A5276;
             background-color: #4CAF50;
             color: white;
             padding: 20px;
             text-align: center;
         }
+        
         section {
             margin: 20px;
             padding: 20px;
@@ -35,11 +37,70 @@
             text-align: center;
             margin: 20px;
         }
+        .highlight {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-left: 4px solid #1A5276;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #1A5276;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
     </style>
 </head>
 <body>
 
 <header>
+    <h1>Tendencias Anuales de Producción de Petróleo y Gas en Argentina</h1>
+</header>
+
+<section>
+    <h2>Descripción del dataset</h2>
+    <p>Este análisis se basa en el dataset público de producción de petróleo y gas en Argentina, que contiene información detallada sobre la extracción de hidrocarburos en el país desde 2006 hasta 2023. Los datos consideran:</p>
+    
+    <div class="highlight">
+        <p><strong>Fuente:</strong> Datos abiertos del Ministerio de Energía de la Nación Argentina</p>
+    </div>
+    
+    <p>El dataset incluye información sobre:</p>
+    <ul>
+        <li>Producción mensual de petróleo (primaria y secundaria)</li>
+        <li>Producción de gas por tipo de presión (alta, media y baja)</li>
+        
+    </ul>
+    
+    <table>
+        <tr>
+            <th>Indicador</th>
+            <th>Unidad de medida</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td>Producción Primaria y Secundaria</td>
+            <td>Metros cúbicos (m³)</td>
+            <td>Volumen de petróleo extraído mensualmente</td>
+        </tr>
+        <tr>
+            <td>Gas de Alta, Media y Baja Presión</td>
+            <td>Miles de metros cúbicos (Mm³)</td>
+            <td>Volumen de gas natural extraído mensualmente</td>
+        </tr>
+    </table>
+
     <h1>Tendencias Anuales de Producción</h1>
 </header>
 
@@ -53,6 +114,7 @@
 </section>
 
 <section>
+    <h2>Gráfico de Tendencias de producción de petróleo</h2>
     <h2>Gráfico de Tendencias</h2>
     <p>El siguiente gráfico ilustra cómo evolucionan las cantidades de las métricas seleccionadas a lo largo de los años:</p>
     <img src="./images/tendencias_grafico.png" alt="Gráfico de Tendencias Anuales">
@@ -67,6 +129,62 @@
     </ul>
 </section>
 
+<section>
+    <h2>Tendencias de Cantidades de Gas por Año</h2>
+    <p>Este gráfico presenta la evolución anual de la producción de gas natural según su presión:</p>
+    <img src="./images/produccion_gas.png" alt="Gráfico de producción de gas por año">
+    
+    
+    <div class="highlight">
+        <h3>Análisis de tendencias de gas</h3>
+        <ul>
+            <li>El <strong>Gas de Baja Presión</strong> es el principal componente de la producción, con valores entre 24 y 30 millones de m³, mostrando un incremento hasta 2021 y una caída pronunciada en 2023.</li>
+            <li>El <strong>Gas de Media Presión</strong> presenta una tendencia decreciente desde 2012, pasando de aproximadamente 16 millones de m³ a menos de 5 millones de m³ en 2023.</li>
+            <li>El <strong>Gas de Alta Presión</strong> muestra una recuperación desde 2014, después de un período de declive, con un pico en 2022 de aproximadamente 12 millones de m³.</li>
+        </ul>
+    </div>
+</section>
+
+    <section>
+        <h2>Producción Mensual de Petróleo (Últimos 5 Años)</h2>
+        <p>El siguiente gráfico muestra la evolución mensual de la producción primaria y secundaria de petróleo durante los últimos 5 años:</p>
+        <img src="./images/produccion_petroleoUltimos_5.png" alt="Gráfico de producción de petróleo (últimos 5años)">
+        
+        
+        <div class="highlight">
+            <h3>Observaciones sobre la producción de petróleo</h3>
+            <ul>
+                <li>La <strong>Producción Primaria</strong> muestra valores entre 1.2 y 2.2 millones de m³, con picos cíclicos a lo largo del año.</li>
+                <li>La <strong>Producción Secundaria</strong> se mantiene más estable, en un rango entre 0.7 y 1.0 millones de m³.</li>
+                <li>Se observa una clara diferencia entre ambos tipos de producción, siendo la primaria significativamente mayor.</li>
+                <li>Existen patrones estacionales en la producción, con incrementos sistemáticos en ciertos meses del año.</li>
+            </ul>
+        </div>
+    </section>
+
+    
+
+    <section>
+        <h2>Producción Mensual de Gas (Últimos 5 Años)</h2>
+        <p>Este gráfico detalla la producción mensual de gas por tipo durante los últimos 5 años:</p>
+        <img src="./images/image_Gas_ultrimos_5_año.png" alt="Gráfico de producción de gas (últimos 5años)">
+        
+        
+        <div class="highlight">
+            <h3>Características de la producción mensual de gas</h3>
+            <ul>
+                <li>El <strong>Gas de Baja Presión</strong> domina la producción, con valores entre 1.9 y 3.0 millones de m³ mensuales.</li>
+                <li>El <strong>Gas de Alta Presión</strong> y el <strong>Gas de Media Presión</strong> muestran patrones cíclicos alternados, sugiriendo una posible correlación inversa entre ambos.</li>
+                <li>Se observan incrementos en la producción de Gas de Baja Presión en los últimos años, con picos más pronunciados y frecuentes.</li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <p>Análisis de Producción de Petróleo y Gas en Argentina - Basado en datos del Ministerio de Energía </p>
+    </footer>
+
+</body>
+</html>
 <footer>
     <p>Análisis de Producción</p>
 </footer>
