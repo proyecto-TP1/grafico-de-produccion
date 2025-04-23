@@ -10,55 +10,162 @@
             margin: 0;
             padding: 0;
             background-color: #f7f7f7;
+            color: #333;
         }
+        
         header {
-            background-color: #1A5276;
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #1A5276, #2E86C1);
             color: white;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         section {
-            margin: 20px;
-            padding: 20px;
+            margin: 25px;
+            padding: 25px;
             background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .section-divider {
+            border-top: 3px solid #eaeaea;
+            margin: 40px 0;
+        }
+        
+        .section-header {
+            background: #f5f9fc;
+            padding: 15px;
             border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #1A5276;
         }
-        h1, h2 {
-            color: #333;
+        
+        .oil-section .section-header {
+            border-left: 5px solid #E74C3C;
         }
+        
+        .gas-section .section-header {
+            border-left: 5px solid #27AE60;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            color: #2C3E50;
+            font-size: 1.8em;
+            margin-top: 15px;
+        }
+        
+        h3 {
+            color: #34495E;
+        }
+        
         img {
             max-width: 100%;
             border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: block;
+            margin: 20px auto;
         }
+        
+        img:hover {
+            transform: scale(1.01);
+        }
+        
         footer {
+            background: #2C3E50;
+            color: white;
             text-align: center;
-            margin: 20px;
+            padding: 20px;
+            margin-top: 40px;
         }
+        
         .highlight {
-            background-color: #eaf2f8;
-            padding: 15px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
             border-left: 4px solid #1A5276;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
+        
+        .oil-highlight {
+            border-left: 4px solid #E74C3C;
+            background-color: #fdf2f0;
+        }
+        
+        .gas-highlight {
+            border-left: 4px solid #27AE60;
+            background-color: #f0f9f4;
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 25px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
         }
+        
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+        
         th {
             background-color: #1A5276;
             color: white;
         }
+        
+        .oil-table th {
+            background-color: #E74C3C;
+        }
+        
+        .gas-table th {
+            background-color: #27AE60;
+        }
+        
         tr:hover {
             background-color: #f5f5f5;
+        }
+        
+        .oil-icon, .gas-icon {
+            font-size: 2em;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        .oil-icon::before {
+            content: "🛢️";
+        }
+        
+        .gas-icon::before {
+            content: "💨";
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .data-source {
+            font-style: italic;
+            color: #7f8c8d;
+            margin: 15px 0;
         }
     </style>
 </head>
@@ -66,22 +173,16 @@
 
 <header>
     <h1>Tendencias Anuales de Producción de Petróleo y Gas en Argentina</h1>
+    <p>Análisis de datos del Ministerio de Energía de la Nación Argentina (2006-2023)</p>
 </header>
 
 <section>
     <h2>Descripción del dataset</h2>
-    <p>Este análisis se basa en el dataset público de producción de petróleo y gas en Argentina, que contiene información detallada sobre la extracción de hidrocarburos en el país desde 2006 hasta 2023. Los datos consideran:</p>
+    <p>Este análisis se basa en el dataset público de producción de petróleo y gas en Argentina, que contiene información detallada sobre la extracción de hidrocarburos en el país desde 2006 hasta 2023.</p>
     
     <div class="highlight">
         <p><strong>Fuente:</strong> Datos abiertos del Ministerio de Energía de la Nación Argentina</p>
     </div>
-    
-    <p>El dataset incluye información sobre:</p>
-    <ul>
-        <li>Producción mensual de petróleo (primaria y secundaria)</li>
-        <li>Producción de gas por tipo de presión (alta, media y baja)</li>
-        
-    </ul>
     
     <table>
         <tr>
@@ -100,42 +201,91 @@
             <td>Volumen de gas natural extraído mensualmente</td>
         </tr>
     </table>
+</section>
 
-    <h1>Tendencias Anuales de Producción</h1>
-</header>
+<!-- SECCIÓN DE PETRÓLEO -->
+<div class="section-divider"></div>
 
-<section>
-    <h2>Descripción de los datos</h2>
+<section class="oil-section">
+    <div class="section-header">
+        <h2><span class="oil-icon"></span>Producción de Petróleo</h2>
+    </div>
+    
+    <h3>Descripción de los datos de petróleo</h3>
     <p>Los datos del archivo <strong>pet.csv</strong> muestran las cantidades de producción anual en diversas categorías relacionadas con la industria petrolera. Las métricas seleccionadas para este análisis son:</p>
+    
     <ul>
         <li><strong>Producción Primaria (m³):</strong> Volumen de extracción directa de petróleo crudo.</li>
         <li><strong>Producción Secundaria (m³):</strong> Cantidad recuperada mediante técnicas como inyección de agua o gas.</li>
     </ul>
+
+    <h3>Tendencias Anuales de Producción de Petróleo</h3>
+    <p>El siguiente gráfico ilustra cómo evolucionan las cantidades de producción de petróleo a lo largo de los años:</p>
+    <img src="./images/tendencias_grafico.png" alt="Gráfico de Tendencias Anuales de Petróleo">
+    
+    <div class="highlight oil-highlight">
+        <h3>Interpretación del gráfico</h3>
+        <p>Las tendencias reflejan lo siguiente:</p>
+        <ul>
+            <li>Una posible disminución en la <strong>Producción Primaria</strong>, lo que podría indicar cambios en las reservas accesibles o en las técnicas utilizadas.</li>
+            <li>Un aumento en la <strong>Producción Secundaria</strong>, lo que sugiere la creciente importancia de las técnicas de recuperación secundaria.</li>
+        </ul>
+    </div>
+
+    <h3>Producción Mensual de Petróleo (Últimos 5 Años)</h3>
+    <p>El siguiente gráfico muestra la evolución mensual de la producción primaria y secundaria de petróleo durante los últimos 5 años:</p>
+    <img src="./images/produccion_petroleoUltimos_5.png" alt="Gráfico de producción de petróleo (últimos 5años)">
+    
+    <div class="highlight oil-highlight">
+        <h3>Observaciones sobre la producción de petróleo</h3>
+        <ul>
+            <li>La <strong>Producción Primaria</strong> muestra valores entre 1.2 y 2.2 millones de m³, con picos cíclicos a lo largo del año.</li>
+            <li>La <strong>Producción Secundaria</strong> se mantiene más estable, en un rango entre 0.7 y 1.0 millones de m³.</li>
+            <li>Se observa una clara diferencia entre ambos tipos de producción, siendo la primaria significativamente mayor.</li>
+            <li>Existen patrones estacionales en la producción, con incrementos sistemáticos en ciertos meses del año.</li>
+        </ul>
+    </div>
+    
+    <table class="oil-table">
+        <tr>
+            <th>Tipo de Producción</th>
+            <th>Rango Típico (m³)</th>
+            <th>Tendencia Observada</th>
+        </tr>
+        <tr>
+            <td>Producción Primaria</td>
+            <td>1.2 - 2.2 millones</td>
+            <td>Fluctuante con patrones estacionales</td>
+        </tr>
+        <tr>
+            <td>Producción Secundaria</td>
+            <td>0.7 - 1.0 millones</td>
+            <td>Relativamente estable con leve tendencia al crecimiento</td>
+        </tr>
+    </table>
 </section>
 
-<section>
-    <h2>Gráfico de Tendencias de producción de petróleo</h2>
-    <h2>Gráfico de Tendencias</h2>
-    <p>El siguiente gráfico ilustra cómo evolucionan las cantidades de las métricas seleccionadas a lo largo de los años:</p>
-    <img src="./images/tendencias_grafico.png" alt="Gráfico de Tendencias Anuales">
-</section>
+<!-- SECCIÓN DE GAS -->
+<div class="section-divider"></div>
 
-<section>
-    <h2>Interpretación del gráfico</h2>
-    <p>Las tendencias reflejan lo siguiente:</p>
+<section class="gas-section">
+    <div class="section-header">
+        <h2><span class="gas-icon"></span>Producción de Gas Natural</h2>
+    </div>
+    
+    <h3>Descripción de los datos de gas</h3>
+    <p>El análisis de la producción de gas natural en Argentina se enfoca en los diferentes tipos según su presión:</p>
     <ul>
-        <li>Una posible disminución en la <strong>Producción Primaria</strong>, lo que podría indicar cambios en las reservas accesibles o en las técnicas utilizadas.</li>
-        <li>Un aumento en la <strong>Producción Secundaria</strong>, lo que sugiere la creciente importancia de las técnicas de recuperación secundaria.</li>
+        <li><strong>Gas de Alta Presión:</strong> Extraído de yacimientos con alta presión natural.</li>
+        <li><strong>Gas de Media Presión:</strong> Producido en yacimientos con presión moderada.</li>
+        <li><strong>Gas de Baja Presión:</strong> Obtenido de yacimientos con menor presión o como resultado de procesos de separación.</li>
     </ul>
-</section>
 
-<section>
-    <h2>Tendencias de Cantidades de Gas por Año</h2>
+    <h3>Tendencias de Cantidades de Gas por Año</h3>
     <p>Este gráfico presenta la evolución anual de la producción de gas natural según su presión:</p>
     <img src="./images/produccion_gas.png" alt="Gráfico de producción de gas por año">
     
-    
-    <div class="highlight">
+    <div class="highlight gas-highlight">
         <h3>Análisis de tendencias de gas</h3>
         <ul>
             <li>El <strong>Gas de Baja Presión</strong> es el principal componente de la producción, con valores entre 24 y 30 millones de m³, mostrando un incremento hasta 2021 y una caída pronunciada en 2023.</li>
@@ -143,50 +293,63 @@
             <li>El <strong>Gas de Alta Presión</strong> muestra una recuperación desde 2014, después de un período de declive, con un pico en 2022 de aproximadamente 12 millones de m³.</li>
         </ul>
     </div>
+
+    <h3>Producción Mensual de Gas (Últimos 5 Años)</h3>
+    <p>Este gráfico detalla la producción mensual de gas por tipo durante los últimos 5 años:</p>
+    <img src="./images/image_Gas_ultrimos_5_año.png" alt="Gráfico de producción de gas (últimos 5años)">
+    
+    <div class="highlight gas-highlight">
+        <h3>Características de la producción mensual de gas</h3>
+        <ul>
+            <li>El <strong>Gas de Baja Presión</strong> domina la producción, con valores entre 1.9 y 3.0 millones de m³ mensuales.</li>
+            <li>El <strong>Gas de Alta Presión</strong> y el <strong>Gas de Media Presión</strong> muestran patrones cíclicos alternados, sugiriendo una posible correlación inversa entre ambos.</li>
+            <li>Se observan incrementos en la producción de Gas de Baja Presión en los últimos años, con picos más pronunciados y frecuentes.</li>
+        </ul>
+    </div>
+    
+    <table class="gas-table">
+        <tr>
+            <th>Tipo de Gas</th>
+            <th>Rango Típico (Mm³)</th>
+            <th>Tendencia Observada</th>
+        </tr>
+        <tr>
+            <td>Gas de Baja Presión</td>
+            <td>1.9 - 3.0 millones</td>
+            <td>Dominante con tendencia creciente y picos estacionales</td>
+        </tr>
+        <tr>
+            <td>Gas de Media Presión</td>
+            <td>0.3 - 1.5 millones</td>
+            <td>Decreciente con oscilaciones periódicas</td>
+        </tr>
+        <tr>
+            <td>Gas de Alta Presión</td>
+            <td>0.5 - 1.2 millones</td>
+            <td>Recuperación desde 2014 con tendencia al alza</td>
+        </tr>
+    </table>
 </section>
 
-    <section>
-        <h2>Producción Mensual de Petróleo (Últimos 5 Años)</h2>
-        <p>El siguiente gráfico muestra la evolución mensual de la producción primaria y secundaria de petróleo durante los últimos 5 años:</p>
-        <img src="./images/produccion_petroleoUltimos_5.png" alt="Gráfico de producción de petróleo (últimos 5años)">
-        
-        
-        <div class="highlight">
-            <h3>Observaciones sobre la producción de petróleo</h3>
-            <ul>
-                <li>La <strong>Producción Primaria</strong> muestra valores entre 1.2 y 2.2 millones de m³, con picos cíclicos a lo largo del año.</li>
-                <li>La <strong>Producción Secundaria</strong> se mantiene más estable, en un rango entre 0.7 y 1.0 millones de m³.</li>
-                <li>Se observa una clara diferencia entre ambos tipos de producción, siendo la primaria significativamente mayor.</li>
-                <li>Existen patrones estacionales en la producción, con incrementos sistemáticos en ciertos meses del año.</li>
-            </ul>
-        </div>
-    </section>
+<div class="section-divider"></div>
 
+<section>
+    <h2>Conclusiones Generales</h2>
+    <div class="highlight">
+        <ul>
+            <li>La <strong>producción de petróleo</strong> muestra una clara predominancia de la extracción primaria sobre la secundaria, aunque esta última presenta mayor estabilidad.</li>
+            <li>En la <strong>producción de gas</strong>, el gas de baja presión representa el mayor volumen de producción, mientras que la media presión ha mostrado una tendencia decreciente significativa.</li>
+            <li>Ambos recursos muestran patrones estacionales claros, con variaciones cíclicas que podrían estar relacionadas con factores climáticos, demanda o condiciones operativas.</li>
+        </ul>
+    </div>
     
+    <p class="data-source">Este análisis se basa en datos públicos del Ministerio de Energía de la Nación Argentina. Los gráficos fueron generados utilizando Python con las bibliotecas Pandas y Matplotlib para el procesamiento y visualización de datos.</p>
+</section>
 
-    <section>
-        <h2>Producción Mensual de Gas (Últimos 5 Años)</h2>
-        <p>Este gráfico detalla la producción mensual de gas por tipo durante los últimos 5 años:</p>
-        <img src="./images/image_Gas_ultrimos_5_año.png" alt="Gráfico de producción de gas (últimos 5años)">
-        
-        
-        <div class="highlight">
-            <h3>Características de la producción mensual de gas</h3>
-            <ul>
-                <li>El <strong>Gas de Baja Presión</strong> domina la producción, con valores entre 1.9 y 3.0 millones de m³ mensuales.</li>
-                <li>El <strong>Gas de Alta Presión</strong> y el <strong>Gas de Media Presión</strong> muestran patrones cíclicos alternados, sugiriendo una posible correlación inversa entre ambos.</li>
-                <li>Se observan incrementos en la producción de Gas de Baja Presión en los últimos años, con picos más pronunciados y frecuentes.</li>
-            </ul>
-        </div>
-    </section>
-    <footer>
-        <p>Análisis de Producción de Petróleo y Gas en Argentina - Basado en datos del Ministerio de Energía </p>
-    </footer>
-
-</body>
-</html>
 <footer>
-    <p>Análisis de Producción</p>
+    <p>Análisis de Producción de Petróleo y Gas en Argentina - Basado en datos del Ministerio de Energía</p>
+    <p>Franco Mirna - Ocampo Emiliano  </p>
+    <p> 2025 </p>
 </footer>
 
 </body>
